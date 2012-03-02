@@ -53,6 +53,13 @@ class ProductTest < ActiveSupport::TestCase
 
   end
 
+  test "product title length must be at least ten characters long" do
+    product =  products(:ruby)
+    product.title = "tooshort"
+    assert !product.save, "the product with short title has been saved"
+    assert_match(%r{at least ten characters long}, product.errors[:title].join('; '), "short title error message mismatch")
+  end
+
   def new_product(image_url)
     Product.new(:title => "some title",
                 :description => "some description",
