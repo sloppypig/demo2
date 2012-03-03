@@ -124,7 +124,9 @@
  }
  #columns { background: #141;
  }
-
+ #side_time {
+    color: #bfb; font-size: small;
+ }
  #main {
  margin-left: 13em;
    padding-top: 4ex;
